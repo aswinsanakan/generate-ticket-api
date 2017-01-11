@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  namespace :api, defaults: {format: "json"} do
+    
+    get 'bookings/generate_reference'
+    post 'bookings/generate_reference'
+
+  end
+
+  namespace :api do
+    resources :bookings
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
