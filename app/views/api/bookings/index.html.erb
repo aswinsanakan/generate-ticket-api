@@ -1,10 +1,14 @@
 <h2>Booking References</h2>
-<p>Last Booking Reference Created : <b><%= @bookings.last.reference_num %></b> </p>
+<% if @bookings.empty? %>
+	<h3>No booking references generated yet!</h3>
+<%else%>
+	<p>Last Booking Reference Created : <b><%= @bookings.last.reference_num %></b> </p>
 
-<h3>All References</h3>
-<ul>
-	<% @bookings.each do |booking| %>
-		<li><%= booking.reference_num %></li>
-	<%end%>
-</ul>
+	<h3>All References</h3>
+	<ul>
+		<% @bookings.each do |booking| %>
+			<li><%= booking.reference_num %></li>
+		<%end%>
+	</ul>
+<%end%>
 
