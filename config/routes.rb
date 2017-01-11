@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  apipie
   namespace :api, defaults: {format: "json"} do
     
     get 'bookings/generate_reference'

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rabl'
 gem 'httparty'
-
+gem 'apipie-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
