@@ -7,17 +7,20 @@ module Api
 			short 'Booking Reference Generation App'
 		end
 
+		def_param_group :booking do
+			param :booking, Hash, desc: "Booking Reference info" do
+				param :id, Fixnum, desc: "Booking Reference ID", required: true
+				param :reference_num, String, desc: "Generated Booking Reference", required: true
+			end
+		end
+
 		api :GET, "/bookings", "List Booking references"
 		def index
 			@bookings = Booking.all 
 		end		
 
 		api :POST, '/bookings/generate_reference', "Generate booking reference"
-		
-		param :booking, Hash, desc: "Booking Reference info", required: true do
-			param :id, Fixnum, desc: "Booking Reference ID", required: true
-			param :reference_num, String, desc: "Generated Booking Reference", required: true
-		end
+		param_group :booking
 		def generate_reference
 			flag = 0
 			while flag==0
